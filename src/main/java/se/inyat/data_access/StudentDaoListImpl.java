@@ -1,5 +1,6 @@
 package se.inyat.data_access;
 
+import org.springframework.stereotype.Component;
 import se.inyat.models.Student;
 
 import java.util.ArrayList;
@@ -8,7 +9,11 @@ import java.util.List;
 @Component
 public class StudentDaoListImpl implements StudentDao {
 
-    List<Student> students = new ArrayList<>();
+    private List<Student> students;
+
+    public StudentDaoListImpl() {
+        students = new ArrayList<>();
+    }
 
     @Override
     public Student save(Student student) {
@@ -27,6 +32,8 @@ public class StudentDaoListImpl implements StudentDao {
 
     @Override
     public void delete(int id) {
-
+    }
+    public void clear() {
+        students.clear();
     }
 }
